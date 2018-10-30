@@ -1,0 +1,39 @@
+@import "config";
+
+.menu-btn {
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    top: 35px;
+    cursor: pointer;
+    @include easeOute;
+
+    .btn-line {
+        width: 40px;
+        height: 5px;
+        margin: 0 0 5px 0;
+        background: #fff;
+        @include easeOute;
+    }
+
+    //flip in to x menu lines
+    &.close {
+        transform: rotate(180deg);
+
+        .btn-line {
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 5px);
+                background: $secondary-color;
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(9px, -6px);
+                background: $secondary-color;
+            }
+        }
+    }
+}
