@@ -12,7 +12,7 @@
         width: 40px;
         height: 5px;
         margin: 0 0 5px 0;
-        background: #fff;
+        background: set-text-color($primary-color);
         @include easeOute;
     }
 
@@ -35,5 +35,104 @@
                 background: $secondary-color;
             }
         }
+    }
+
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
+    visibility: hidden;
+
+    &.show {
+        visibility: visible;
+    }
+
+    &-branding,
+    &-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    &-nav {
+        margin: 0;
+        padding: 0;
+        background: darken($primary-color, 5);
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        @include easeOute;
+
+        &.show {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &-branding {
+        background: $primary-color;
+        transform: translate3d(0, 100%, 0);
+        @include easeOute;
+
+        &.show {
+            transform: translate3d(0, 0, 0);
+        }
+
+        .portrait {
+            width: 350px;
+            height: 350px;
+            // portrait img url
+            background: url('../img/Martin_normal.png');
+            border-radius: 50%;
+
+            border: solid 3px $secondary-color;
+
+            background-size: cover;
+
+            //Background in middle;
+            ;
+
+        }
+    }
+
+    .nav-item {
+        transform: translate3d(600px, 0, 0);
+        @include easeOute;
+
+        &.show {
+            transform: translate3d(0, 0, 0)
+        }
+
+        &.current>a {
+            color: $secondary-color;
+        }
+    }
+
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: set-text-color($primary-color);
+        @include easeOute;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+//Delay nav Item
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) {
+        transition-delay: $x *0.2s;
     }
 }
