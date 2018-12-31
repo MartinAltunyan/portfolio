@@ -26,8 +26,10 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
-  visibility: hidden; }
+  
+  visibility: hidden; 
+  
+  }
   .menu.show {
     visibility: visible; }
   .menu-branding, .menu-nav {
@@ -188,9 +190,8 @@ main {
   grid-template-columns: repeat(3, 1fr); }
   .projects img {
     width: 100%;
-
     border: 3px #eece1a solid; }
-    
+
     .projects img:hover {
       opacity: 0.4;
       border-color: #eece1a;
